@@ -1,0 +1,13 @@
+<html>
+   <link rel="stylesheet" href="/static/style.css" type="text/css"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+   <div class="login">
+      <h1>login</h1>
+      <form action="/login" method="POST">
+         {{ form.hidden_tag() }}
+         {{form.username(placeholder ='username')}}
+         {{form.password(placeholder='password')}}
+         {{ form.submit(class="btn btn-primary btn-block btn-large") }}
+      </form>
+   </div>
+<html>

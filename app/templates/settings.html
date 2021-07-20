@@ -1,0 +1,216 @@
+<html>
+   <head>
+      <title>AZHUNTER</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+      <script src="{{ url_for('static', filename='parameters.js')}}"></script>
+      <style>
+         html,body,h1,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+         .w3-quarter img{margin-bottom: -6px; cursor: pointer}
+         .w3-quarter img:hover{opacity: 0.6; transition: 0.3s}
+         body {
+         width: 100%;
+         height:100%;
+         background: linear-gradient(to bottom, #f0f0f0 0%,rgb(73, 73, 73) 100%);
+         overflow: hidden;
+         }
+         .display_box2{
+         position: relative;
+         background-color: rgb(255, 255, 255);
+         height: 84%;
+         margin-left: 2%;
+         margin-right: 2%;
+         margin-top: 65px;
+         margin-bottom: 0px;
+         padding-right:5px ;
+         padding-left: 5px;
+         }
+         .display_image{
+         background-color: #ffffff;
+         padding-right:5px ;
+         padding-left: 5px;
+         }
+         .display_info{
+         position: relative;
+         top:0%;
+         background-color: aqua;
+         height: 0%;
+         display:block;
+         }
+         .menu_con{
+         margin-top: 8px;
+         color:white;
+         background: linear-gradient(to bottom, #616161 -14%,rgb(0, 0, 0) 114%); 
+         }
+         .try_this{
+         height: 60px;    
+         width: 100%;
+         background: linear-gradient(to bottom, #616161 0%,rgb(0, 0, 0) 100%); 
+         box-shadow: 0 5px 15px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(3, 3, 3, 0.19);
+         }
+         .bTn{
+         bottom:45%;
+         }
+         .price{
+         width: 24%;
+         margin-left: 12%;
+         }
+         .rank{
+         width: 24%;
+         margin-left: 7%;
+         }
+         p{
+         display: inline;
+         }
+         .switch input {display:none;}
+         .slider {
+         position: absolute;
+         cursor: pointer;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         background-color: #ccc;
+         -webkit-transition: .4s;
+         transition: .4s;
+         }
+         .slider:before {
+         position: absolute;
+         content: "";
+         height: 26px;
+         width: 26px;
+         left: 4px;
+         bottom: 4px;
+         background-color: white;
+         -webkit-transition: .4s;
+         transition: .4s;
+         }
+         .switch {
+         position: relative;
+         display: inline-block;
+         width: 60px;
+         height: 34px;
+         float: right;
+         margin-right: 4%;
+         margin-bottom: 0px;
+         margin-top: -0.5%;
+         }
+         input:checked + .slider {
+         background-color: #2196F3;
+         }
+         input:focus + .slider {
+         box-shadow: 0 0 1px #2196F3;
+         }
+         input:checked + .slider:before {
+         -webkit-transform: translateX(26px);
+         -ms-transform: translateX(26px);
+         transform: translateX(26px);
+         }
+         .slider.round {
+         border-radius: 34px;
+         }
+         .slider.round:before {
+         border-radius: 50%;
+         }
+         .settings_name{
+         font-family: 'Roboto';
+         font-size: 19px;
+         font-style: normal;
+         float: left;
+         margin-left: 2%;
+         color:#d8d8d8;
+         }
+         .settings_arrow{
+         border-left: solid;
+         float: right;
+         border-width: 1px;
+         padding-top: 2px;
+         padding-bottom: 2px;
+         padding-left: 15px;
+         padding-right: 14px;
+         color:#d8d8d8;
+         border-color:#d8d8d8;
+         }
+         .menu_button{
+         border-style: solid;
+         border-width: 0px;
+         border-radius: 0px;
+         width: 104.5%;
+         padding-top: 5%;
+         padding-bottom: 5%;
+         padding-left: 0%;
+         padding-right: 0%;
+         margin-left: -2.5%;
+         background: linear-gradient(to bottom, #616161 0%,rgb(0, 0, 0) 100%);
+         box-shadow: 0 5px 15px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(3, 3, 3, 0.19);
+         }
+         .menu_button2{
+         height: 421px;
+         border-style: solid;
+         border-width: 0px;
+         border-radius: 0px;
+         width: 104.5%;
+         padding-top: 5%;
+         padding-bottom: 5%;
+         padding-left: 0%;
+         color: #d8d8d8;
+         padding-right: 0%;
+         margin-top: 11.5%;
+         margin-left: -2.5%;
+         background: linear-gradient(to bottom, #616161 0%,rgb(0, 0, 0) 100%);
+         box-shadow: 0 5px 15px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(3, 3, 3, 0.19);
+         }
+         .top_label{
+         margin-top: 2%;
+         color: #d8d8d8;
+         margin-left: 34%;
+         }
+      </style>
+   </head>
+   <body>
+      <nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:170px;font-weight:bold;display:none;right:0;" id="mySidebar">
+         <a href="javascript:void()" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-32">CLOSE</a> 
+         <a href="/search" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">HOME</a> 
+         <a></a> 
+         <a href="/logout" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">LOGOUT</a>
+         <a></a>
+      </nav>
+      <!-- Top menu on small screens -->
+      <header class="try_this w3-top w3-large">
+         <span class="top_label w3-left w3-padding">Settings</span>
+         <a href="javascript:void(0)" class="menu_con w3-button w3-right" onclick="w3_open()">☰</a>
+         <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+      </header>
+      <div class="display_box2  w3-text-grey w3-card-4 ">
+      <div class=" display_image w3-container conatiner_mod">
+      </div>
+      <div class="display_info w3-white w3-display-container">
+         <a href="/settings/parameters" class=" menu_button w3-button w3-left"><i class="settings_name">Parameters</i><i class=" settings_arrow material-icons">chevron_right</i></a>
+         <br>
+         <div class="menu_button2">
+                <div style="margin-left:3%">
+                        <span>Turning on parameters will display "Buy!" on the screen
+                            and will let off a small auditory notification based off
+                            of the settings you provide.
+                        </span>
+                    </div>
+                    <hr>
+                    <div style="margin-left:3%">
+                        <span>
+                            To turn on parameters simply input a rank and a price 
+                            into one or multiple fields and save. To turn off, remove data and
+                            save settings.
+                            
+                            <a href="/privacy"> Privacy Policy</a>
+                        </span>
+                        </div>
+               
+         </div>
+      </div>
+   </body>
+</html>

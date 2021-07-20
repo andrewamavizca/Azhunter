@@ -1,0 +1,263 @@
+<html>
+   <head>
+      <title>AZHUNTER</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+      <script src="{{ url_for('static', filename='parameters.js')}}"></script>
+      <style>
+         html,body,h1,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+         .w3-quarter img{margin-bottom: -6px; cursor: pointer}
+         .w3-quarter img:hover{opacity: 0.6; transition: 0.3s}
+         body {
+         width: 100%;
+         height:100%;
+         background: linear-gradient(to bottom, #f0f0f0 0%,rgb(73, 73, 73) 100%);
+         overflow: hidden;
+         }
+         .display_box2{
+         position: relative;
+         background-color: rgb(255, 255, 255);
+         height: 84%;
+         margin-left: 2%;
+         margin-right: 2%;
+         margin-top: 65px;
+         margin-bottom: 0px;
+         padding-right:5px ;
+         padding-left: 5px;
+         }
+         .display_image{
+         background-color: #ffffff;
+         padding-right:5px ;
+         padding-left: 5px;
+         }
+         .display_info{
+         position: relative;
+         top:0%;
+         background-color: aqua;
+         height: 0%;
+         display:block;
+         }
+         .menu_con{
+         margin-top: 8px;
+         color:white;
+         background: linear-gradient(to bottom, #616161 -14%,rgb(0, 0, 0) 114%); 
+         }
+         .try_this{
+         height: 60px;    
+         width: 100%;
+         background: linear-gradient(to bottom, #616161 0%,rgb(0, 0, 0) 100%); 
+         box-shadow: 0 5px 15px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(3, 3, 3, 0.19);
+         }
+         .bTn{
+         bottom:45%;
+         }
+         .price{
+         width: 24%;
+         margin-left: 12%;
+         }
+         .rank{
+         width: 24%;
+         margin-left: 7%;
+         }
+         p{
+         display: inline;
+         }
+         .switch input {display:none;}
+         .slider {
+         position: absolute;
+         cursor: pointer;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         background-color: #ccc;
+         -webkit-transition: .4s;
+         transition: .4s;
+         }
+         .slider:before {
+         position: absolute;
+         content: "";
+         height: 26px;
+         width: 26px;
+         left: 4px;
+         bottom: 4px;
+         background-color: white;
+         -webkit-transition: .4s;
+         transition: .4s;
+         }
+         .switch {
+         position: relative;
+         display: inline-block;
+         width: 60px;
+         height: 34px;
+         margin-top: 5%;
+         margin-bottom: 5%;
+         margin-left: 77%;
+         }
+         input:checked + .slider {
+         background-color: #2196F3;
+         }
+         input:focus + .slider {
+         box-shadow: 0 0 1px #2196F3;
+         }
+         input:checked + .slider:before {
+         -webkit-transform: translateX(26px);
+         -ms-transform: translateX(26px);
+         transform: translateX(26px);
+         }
+         .slider.round {
+         border-radius: 34px;
+         }
+         .slider.round:before {
+         border-radius: 50%;
+         }
+         .top_label{
+         margin-top: 3%;
+         color: #d8d8d8;
+         margin-left: 30%;
+         }
+         #param_description{
+            border: solid;
+            border-width: 1px;
+            border-radius: 5px;
+            color:#d8d8d8;
+            background: linear-gradient(to bottom, #616161 -14%,rgb(0, 0, 0) 114%); 
+         }
+         #rank1, #rank2, #rank3, #rank4,#rank5{
+            width: 30%;
+            margin-left: 13%;
+            border-width: 1px;
+            border-radius: 4px;
+         }
+         #price1,#price2,#price3,#price4,#price5{
+             width: 30%;
+             margin-left: 8%;
+             border-width: 1px;
+             border-radius: 4px;
+         }
+         #submit{
+            float: right;
+            margin-top: 10%;
+            border: solid;
+            height: 39px;
+            width: 84%;
+            margin-right: 8%;
+            color: #d8d8d8;
+            border-radius: 5px;
+            border-width: 0px;
+            background: linear-gradient(to bottom, #616161 -14%,rgb(0, 0, 0) 114%); 
+         }
+      </style>
+   </head>
+   <body>
+      <nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:170px;font-weight:bold;display:none;right:0;" id="mySidebar">
+         <a href="javascript:void()" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-32">CLOSE</a> 
+         <a href="/search" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">HOME</a> 
+         <a></a> 
+         <a href="/logout" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">LOGOUT</a>
+         <a></a>
+      </nav>
+      <!-- Top menu on small screens -->
+      <header class="try_this w3-top w3-large">
+         <span class="top_label w3-left w3-padding">Parameters</span>
+         <a href="javascript:void(0)" class="menu_con w3-button w3-right" onclick="w3_open()">☰</a>
+         <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+      </header>
+      <div class="display_box2  w3-text-grey w3-card-4 ">
+      <div class=" display_image w3-container conatiner_mod">
+      </div>
+      <div class="display_info w3-white w3-display-container">
+      <div>      
+    <div id="container_main" style="display:block">
+         <form action="" method="post" style="display:inline">
+            {{ form.hidden_tag() }}
+           
+            <br>
+            <p> {{ form.rank1(placeholder="Rank") }}</p>
+            <p> {{ form.price1(placeholder="Price") }}</p>
+
+            {% for error in form.rank1.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            {% for error in form.price1.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            <br>
+            <p> {{ form.rank2(placeholder="Rank") }}</p>
+            <p> {{ form.price2(placeholder="Price") }}</p>
+
+            {% for error in form.rank2.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            
+            {% for error in form.price2.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            <br>
+            <p> {{ form.rank3(placeholder="Rank") }}</p>
+            <p> {{ form.price3(placeholder="Price") }}</p>
+
+            {% for error in form.rank3.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            
+            {% for error in form.price3.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            <br>
+            <p> {{ form.rank4(placeholder="Rank") }}</p>
+            <p> {{ form.price4(placeholder="Price") }}</p>
+
+            {% for error in form.rank4.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            
+            {% for error in form.price4.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            <br>
+            <p> {{ form.rank5(placeholder="Rank") }}</p>
+            <p> {{ form.price5(placeholder="Price") }}</p>
+            
+            {% for error in form.rank5.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            
+            {% for error in form.price5.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            <hr>
+            <div id="param_container" style="display:block; margin-left:10%; font-size: 81%;">
+                    <p>Rank is under: {{ current_user.rank1 }} </p> 
+                    <p>| Price is {{ current_user.price1 }} and up</p> 
+                 <br>
+                 {% if current_user.rank2 %}<p>Rank is under: {{ current_user.rank2 }}</p>{% endif %} 
+                 {% if current_user.price2 %}<p>| Price is {{ current_user.price2 }} and up</p>{% endif %} 
+                 <br>
+                 {% if current_user.rank3 %}<p>Rank is under: {{ current_user.rank3 }}</p>{% endif %} 
+                 {% if current_user.price3 %}<p>| Price is {{ current_user.price3 }} and up</p>{% endif %} 
+                 <br>
+                 {% if current_user.rank4 %}<p>Rank is under: {{ current_user.rank4 }}</p>{% endif %} 
+                 {% if current_user.price4 %}<p>| Price is {{ current_user.price4 }} and up</p>{% endif %} 
+                 <br>
+                 {% if current_user.rank5 %}<p>Rank is under: {{ current_user.rank5 }}</p>{% endif %} 
+                 {% if current_user.price5 %}<p>| Price is {{ current_user.price5 }} and up</p>{% endif %} 
+                 <br>
+             
+             </div>
+             <p>{{ form.submit() }}</p>
+         </form>
+         </div>
+      </div>
+   </body>
+</html>
